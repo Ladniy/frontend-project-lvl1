@@ -1,8 +1,9 @@
 name: eslint-check
 on: push
 jobs:
-  my-job:
+  eslint-check-build:
     runs-on: ubuntu-latest
     steps:
-      - name: Make lint
+      - uses: actions/checkout@v2
+      - name: Run linter
         run: make lint
