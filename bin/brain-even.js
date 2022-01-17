@@ -1,35 +1,24 @@
 #!/usr/bin/env node
 
-import readlineSync from 'readline-sync';
+import gameEngine from '../src/index.js';
 
 const isEven = () => {
-  console.log('Welcome to the Brain Games!');
-  const username = readlineSync.question('May i have your name? ');
-  console.log(`Hello, ${username}!\nAnswer "yes" if the number is even, otherwise answer "no".`);
+  const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
+  const questionAnswerPairs = [];
 
-  const roundsCounter = 3;
-  for (let i = 0; i < roundsCounter; i += 1) {
-    const randomNumber = Math.round(Math.random() * 20);
-    const userAnswer = readlineSync.question(`Question: ${randomNumber}\nYour answer: `);
+  for (let i = 0; i < 3; i += 1) {
+    const question = Math.round(Math.random() * 20);
+    const answer = question % 2 ? 'no' : 'yes';
+    const questionAnswerPair = [];
 
-    let rightAnswer = '';
-    if (randomNumber % 2 === 0) {
-      rightAnswer = 'yes';
-    } else {
-      rightAnswer = 'no';
-    }
+    questionAnswerPair.push(question);
+    questionAnswerPair.push(answer);
+    questionAnswerPairs.push(questionAnswerPair);
 
-    if (userAnswer === rightAnswer) {
-      console.log('Correct!');
-    } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'.\nLet's try again, ${username}!`);
-      break;
-    }
-
-    if (i === roundsCounter - 1) {
-      console.log(`Congratulations, ${username}!`);
-    }
+    // console.log(questionAnswerPairs);
+    // console.log(gameRules);
   }
+  gameEngine(questionAnswerPairs, gameRules);
 };
 
 isEven();
