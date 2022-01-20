@@ -30,7 +30,7 @@ const getRightAnswer = (firstNumber, secondNumber, operator) => {
       result = firstNumber * secondNumber;
       break;
     default:
-      console.log('Wrong operator!');
+      break;
   }
   return result;
 };
