@@ -32,11 +32,9 @@ const brainGcd = () => {
     const firstNumber = randomNumber();
     const secondNumber = randomNumber();
     const question = `${firstNumber} ${secondNumber}`;
-    // console.log(question);
     bufferArray.push(question);
     bufferArray.push(getRightAnswer(firstNumber, secondNumber).toString());
     questionAnswerPairs.push(bufferArray);
-    console.log(questionAnswerPairs);
   }
   gameEngine(questionAnswerPairs, gameRules);
 };
