@@ -2,25 +2,55 @@
 
 // import gameEngine from '../src/index.js';
 
+// Functon to generate a random number
 const randomNumber = () => {
-  const result = Math.round(Math.random() * 200);
+  const result = Math.round(Math.random() * 30);
+  return result;
+};
+
+// Function to generate a random operator
+const randomOperator = () => {
+  const operators = ['+', '-', '*'];
+  const number = Math.round(Math.random() * 2);
+  const result = operators[number];
+  return result;
+};
+
+// Function to get the correct expression answer
+const getRightAnswer = (firstNumber, secondNumber, operator) => {
+  let result = 0;
+  switch (operator) {
+    case '+':
+      result = firstNumber + secondNumber;
+      break;
+    case '-':
+      result = firstNumber - secondNumber;
+      break;
+    case '*':
+      result = firstNumber * secondNumber;
+      break;
+    default:
+      console.log('Wrong operator!');
+  }
   return result;
 };
 
 const brainCalc = () => {
   const gameRules = 'What is the result of the expression?';
-  const operators = ['+', '-', '*'];
   const questionAnswerPairs = [];
+
+  const firstNumber = randomNumber();
+  const secondNumber = randomNumber();
+  const operator = randomOperator();
 
   for (let i = 0; i < 3; i += 1) {
     const bufferArray = [];
     bufferArray.push(randomNumber());
-    const randomOperator = Math.round(Math.random() * 2);
-    bufferArray.push(operators[randomOperator]);
+    bufferArray.push(randomOperator());
     bufferArray.push(randomNumber());
+    console.log(bufferArray);
     questionAnswerPairs.push(bufferArray);
   }
-  console.log(questionAnswerPairs);
   // gameEngine(questionAnswerPairs, gameRules);
 };
 
