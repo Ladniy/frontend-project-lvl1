@@ -35,6 +35,7 @@ const getRightAnswer = (firstNumber, secondNumber, operator) => {
   return result;
 };
 
+// Main function with game logic
 const brainCalc = () => {
   const gameRules = 'What is the result of the expression?';
   const questionAnswerPairs = [];
@@ -44,9 +45,11 @@ const brainCalc = () => {
     const secondNumber = randomNumber();
     const operator = randomOperator();
 
+    // Get string with expression
     const expressionString = `${firstNumber} ${operator} ${secondNumber}`;
-    const bufferArray = [];
 
+    // Creating buffer array and push items
+    const bufferArray = [];
     bufferArray.push(expressionString);
     bufferArray.push(getRightAnswer(firstNumber, secondNumber, operator));
     questionAnswerPairs.push(bufferArray);
