@@ -9,13 +9,14 @@ const gameEngine = (array, rules) => {
   // console.log(rules);
   // Compresion and counting answers
   let rightAnswersCount = 0;
-  for (const item of array) {
-    const userAnswer = readlineSync.question(`Question: ${item[0]}\nYour answer: `);
-    if (item[1] === userAnswer) {
+
+  for (let i = 0; i < 3; i += 1) {
+    const userAnswer = readlineSync.question(`Question: ${array[i][0]}\nYour answer: `);
+    if (array[i][1] === userAnswer) {
       console.log('Correct!');
       rightAnswersCount += 1;
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${item[1]}'`);
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${array[i][1]}'`);
       break;
     }
   }
