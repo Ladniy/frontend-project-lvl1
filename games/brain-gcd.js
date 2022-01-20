@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// import gameEngine from '../src/index.js';
+import gameEngine from '../src/index.js';
 
 // Functon to generate a random number
 const randomNumber = () => {
@@ -8,25 +8,37 @@ const randomNumber = () => {
   return result;
 };
 
+const getRightAnswer = (firstNumber, secondNumber) => {
+  let a = firstNumber;
+  let b = secondNumber;
+  let rightAnswer = 0;
+  while (a !== b) {
+    if (a > b) {
+      a -= b;
+    } else {
+      b -= a;
+    }
+  }
+  rightAnswer = a;
+  return rightAnswer;
+};
+
 const brainGcd = () => {
   const gameRules = 'Find the greatest common divisor of given numbers.';
   const questionAnswerPairs = [];
 
-  let firstNumber = randomNumber();
-  let secondNumber = randomNumber();
-  let result = 0;
-  console.log(firstNumber);
-  console.log(secondNumber);
-  while (firstNumber !== secondNumber) {
-    if (firstNumber > secondNumber) {
-      firstNumber -= secondNumber;
-    } else {
-      secondNumber -= firstNumber;
-    }
+  for (let i = 0; i < 3; i += 1) {
+    const bufferArray = [];
+    const firstNumber = randomNumber();
+    const secondNumber = randomNumber();
+    const question = `${firstNumber} ${secondNumber}`;
+    // console.log(question);
+    bufferArray.push(question);
+    bufferArray.push(getRightAnswer(firstNumber, secondNumber).toString());
+    questionAnswerPairs.push(bufferArray);
+    console.log(questionAnswerPairs);
   }
-  result = firstNumber;
-  console.log(result);
-  // gameEngine(questionAnswerPairs, gameRules);
+  gameEngine(questionAnswerPairs, gameRules);
 };
 
 brainGcd();
