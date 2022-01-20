@@ -6,10 +6,10 @@
 
 ### Asciinemas:
 
-## Brain Even game:
+#### Brain Even Game:
 
 [![asciicast](https://asciinema.org/a/459971.svg)](https://asciinema.org/a/459971)
 
-## Brain Calc Game:
+#### Brain Calc Game:
 
 [![asciicast](https://asciinema.org/a/463029.svg)](https://asciinema.org/a/463029)
