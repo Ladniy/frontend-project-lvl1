@@ -39,16 +39,16 @@ const brainCalc = () => {
   const gameRules = 'What is the result of the expression?';
   const questionAnswerPairs = [];
 
-  const firstNumber = randomNumber();
-  const secondNumber = randomNumber();
-  const operator = randomOperator();
-
   for (let i = 0; i < 3; i += 1) {
+    const firstNumber = randomNumber();
+    const secondNumber = randomNumber();
+    const operator = randomOperator();
+
+    const expressionString = `${firstNumber} ${operator} ${secondNumber}`;
     const bufferArray = [];
-    bufferArray.push(randomNumber());
-    bufferArray.push(randomOperator());
-    bufferArray.push(randomNumber());
-    console.log(bufferArray);
+
+    bufferArray.push(expressionString);
+    bufferArray.push(getRightAnswer(firstNumber, secondNumber, operator));
     questionAnswerPairs.push(bufferArray);
   }
   // gameEngine(questionAnswerPairs, gameRules);
