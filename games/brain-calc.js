@@ -54,7 +54,6 @@ const brainCalc = () => {
     const rightAnswer = getRightAnswer(firstNumber, secondNumber, operator);
     bufferArray.push(rightAnswer.toString());
     questionAnswerPairs.push(bufferArray);
-    console.log(questionAnswerPairs);
   }
   gameEngine(questionAnswerPairs, gameRules);
 };
