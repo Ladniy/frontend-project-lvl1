@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-// import gameEngine from '../src/index.js';
+import gameEngine from '../src/index.js';
 
 // Functon to generate a random number
 const randomNumber = () => {
@@ -51,10 +51,12 @@ const brainCalc = () => {
     // Creating buffer array and push items
     const bufferArray = [];
     bufferArray.push(expressionString);
-    bufferArray.push(getRightAnswer(firstNumber, secondNumber, operator));
+    const rightAnswer = getRightAnswer(firstNumber, secondNumber, operator);
+    bufferArray.push(rightAnswer.toString());
     questionAnswerPairs.push(bufferArray);
+    console.log(questionAnswerPairs);
   }
-  // gameEngine(questionAnswerPairs, gameRules);
+  gameEngine(questionAnswerPairs, gameRules);
 };
 
 brainCalc();
