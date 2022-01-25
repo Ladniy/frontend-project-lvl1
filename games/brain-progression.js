@@ -3,18 +3,19 @@
 // import gameEngine from "../src";
 
 const randomNumber = () => {
-  const result = Math.round(Math.random() * 50);
+  const result = Math.round(Math.random() * 2);
   return result;
 };
 
 const createProgression = (firstNumber, secondNumber) => {
-  const a = firstNumber;
+  let a = firstNumber;
   let b = secondNumber;
   let result = `${a}`;
   console.log(result);
   for (let i = 0; i < 9; i += 1) {
-    const bNumber = ` ${(b *= 2)}`;
-    result = result.concat(bNumber);
+    b += b;
+    const tempString = ` ${(a + b)}`;
+    result = result.concat(tempString);
   }
   console.log(result);
 };
