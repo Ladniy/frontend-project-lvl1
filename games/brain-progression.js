@@ -22,7 +22,7 @@ const getQuestionAndAnswer = (firstNumber, secondNumber) => {
   // Changing a random array item to two points
   bufferArray[randomItemIndex] = '..';
 
-  // Pushing items from the buffer array and right answer to result array
+  // Adding items from the buffer array and right answer to result array
   resultArray.push(bufferArray.join(' '));
   resultArray.push(String(rightAnswer));
   return resultArray;
