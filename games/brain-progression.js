@@ -16,11 +16,11 @@ const getQuestionAndAnswer = (firstNumber, secondNumber) => {
   }
 
   // Geting random array index and right answer
-  const randomArrayIndex = getRandomNumber(0, 9);
-  const rightAnswer = bufferArray[randomArrayIndex];
+  const randomItemIndex = getRandomNumber(0, 9);
+  const rightAnswer = bufferArray[randomItemIndex];
 
   // Changing a random array item to two points
-  bufferArray[randomArrayIndex] = '..';
+  bufferArray[randomItemIndex] = '..';
 
   // Pushing items from the buffer array and right answer to result array
   resultArray.push(bufferArray.join(' '));
