@@ -1,11 +1,6 @@
 #!/usr/bin/env node
 
-import gameEngine from '../src/index.js';
-
-const randomNumber = (number = 10) => {
-  const result = Math.round(Math.random() * number);
-  return result;
-};
+import { gameEngine, getRandomNumber } from '../src/index.js';
 
 const getQuestionAndAnswer = (firstNumber, secondNumber) => {
   let a1 = firstNumber;
@@ -21,7 +16,7 @@ const getQuestionAndAnswer = (firstNumber, secondNumber) => {
   }
 
   // Geting random array index and right answer
-  const randomArrayIndex = randomNumber(9);
+  const randomArrayIndex = getRandomNumber(0, 9);
   const rightAnswer = bufferArray[randomArrayIndex];
 
   // Changing a random array item to two points
@@ -37,8 +32,8 @@ const brainProgression = () => {
   const gameRules = 'What number is missing in the progression?';
   const questionAndAnswerPairs = [];
   for (let i = 0; i < 3; i += 1) {
-    const a = randomNumber(2);
-    const d = randomNumber(6);
+    const a = getRandomNumber(1, 4);
+    const d = getRandomNumber(2, 6);
     questionAndAnswerPairs.push(getQuestionAndAnswer(a, d));
   }
   gameEngine(questionAndAnswerPairs, gameRules);
