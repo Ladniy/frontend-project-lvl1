@@ -1,10 +1,4 @@
-import gameEngine from '../src/index.js';
-
-// Functon to generate a random number
-const randomNumber = () => {
-  const result = Math.round(Math.random() * 50);
-  return result;
-};
+import { gameEngine, getRandomNumber } from '../src/index.js';
 
 const getRightAnswer = (firstNumber, secondNumber) => {
   let a = firstNumber;
@@ -27,11 +21,15 @@ const brainGcd = () => {
 
   for (let i = 0; i < 3; i += 1) {
     const bufferArray = [];
-    const firstNumber = randomNumber();
-    const secondNumber = randomNumber();
+    const firstNumber = getRandomNumber(1, 50);
+    const secondNumber = getRandomNumber(1, 50);
     const question = `${firstNumber} ${secondNumber}`;
+
+    // Adding question and answer to an buffer array
     bufferArray.push(question);
     bufferArray.push(getRightAnswer(firstNumber, secondNumber).toString());
+
+    // Adding a buffer array to an question and answer pair array
     questionAnswerPairs.push(bufferArray);
   }
   gameEngine(questionAnswerPairs, gameRules);
