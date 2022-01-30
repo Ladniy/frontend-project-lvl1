@@ -20,7 +20,6 @@ const getRightAnswer = (firstNumber, secondNumber) => {
 const brainGcd = () => {
   const gameRules = 'Find the greatest common divisor of given numbers.';
   const questionAnswerPairs = [];
-
   for (let i = 0; i < 3; i += 1) {
     const bufferArray = [];
     const firstNumber = getRandomNumber(1, 50);
