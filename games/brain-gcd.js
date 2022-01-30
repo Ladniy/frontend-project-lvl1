@@ -4,6 +4,8 @@ const getRightAnswer = (firstNumber, secondNumber) => {
   let a = firstNumber;
   let b = secondNumber;
   let rightAnswer = 0;
+
+  // Finding GCD by subtraction algorithm
   while (a !== b) {
     if (a > b) {
       a -= b;
