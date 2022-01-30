@@ -8,20 +8,26 @@ const randomNumber = (number = 10) => {
 };
 
 const getQuestionAndAnswer = (firstNumber, secondNumber) => {
-  let a = firstNumber;
-  const d = secondNumber;
+  let a1 = firstNumber;
+  const d1 = secondNumber;
   const resultArray = [];
   const bufferArray = [];
 
   // Adding items to an bufferArray
-  bufferArray.push(a);
+  bufferArray.push(a1);
   for (let i = 0; i < 9; i += 1) {
-    a += d;
-    bufferArray.push(a);
+    a1 += d1;
+    bufferArray.push(a1);
   }
+
+  // Geting random array index and right answer
   const randomArrayIndex = randomNumber(9);
   const rightAnswer = bufferArray[randomArrayIndex];
+
+  // Changing a random array item to two points
   bufferArray[randomArrayIndex] = '..';
+
+  // Pushing items from the buffer array and right answer to result array
   resultArray.push(bufferArray.join(' '));
   resultArray.push(String(rightAnswer));
   return resultArray;
