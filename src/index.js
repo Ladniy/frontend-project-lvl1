@@ -19,7 +19,7 @@ const gameEngine = (array, rules) => {
       console.log('Correct!');
       rightAnswersCount += 1;
     } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${array[i][1]}'`);
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${array[i][1]}'\nLet's try again, ${username}!`);
       break;
     }
   }
