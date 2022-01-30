@@ -19,10 +19,10 @@
   "homepage": "https://github.com/Ladniy/frontend-project-lvl1#readme",
   "bin": {
     "brain-games": "bin/brain-games.js",
-    "brain-even": "games/brain-even.js",
-    "brain-calc": "games/brain-calc.js",
-    "brain-gcd": "games/brain-gcd.js",
-    "brain-prime": "games/brain-prime.js"
+    "brain-even": "bin/brain-even.js",
+    "brain-calc": "bin/brain-calc.js",
+    "brain-gcd": "bin/brain-gcd.js",
+    "brain-prime": "bin/brain-prime.js"
   },
   "dependencies": {
     "readline-sync": "^1.4.10"
