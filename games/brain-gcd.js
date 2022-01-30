@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import gameEngine from '../src/index.js';
 
 // Functon to generate a random number
