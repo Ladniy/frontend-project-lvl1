@@ -3,10 +3,14 @@ import { gameEngine, getRandomNumber } from '../src/index.js';
 const getQuestionAndAnswer = (num) => {
   const bufferArray = [];
   let rightAnswer = 'yes';
-  for (let i = 2; i < num; i += 1) {
-    if (num % i === 0) {
-      rightAnswer = 'no';
-      break;
+  if (num === 1) {
+    rightAnswer = 'no';
+  } else {
+    for (let i = 2; i < num; i += 1) {
+      if (num % i === 0) {
+        rightAnswer = 'no';
+        break;
+      }
     }
   }
 
