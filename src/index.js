@@ -26,7 +26,7 @@ const gameEngine = (array, rules) => {
 
   // Checking answers count and show message of game ending
   if (rightAnswersCount === 3) {
-    console.log(`Congratulations, ${username}`);
+    console.log(`Congratulations, ${username}!`);
   }
 };
 
