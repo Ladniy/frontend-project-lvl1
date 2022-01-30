@@ -48,4 +48,4 @@ const brainCalc = () => {
   gameEngine(questionAnswerPairs, gameRules);
 };
 
-brainCalc();
+export default brainCalc;

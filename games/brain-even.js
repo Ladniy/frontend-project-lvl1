@@ -21,4 +21,4 @@ const brainEven = () => {
   gameEngine(questionAnswerPairs, gameRules);
 };
 
-brainEven();
+export default brainEven;

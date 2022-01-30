@@ -26,4 +26,4 @@ const brainPrime = () => {
   gameEngine(questionAndAnswerPairs, gameRules);
 };
 
-brainPrime();
+export default brainPrime;

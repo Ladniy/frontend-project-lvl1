@@ -36,4 +36,4 @@ const brainGcd = () => {
   gameEngine(questionAnswerPairs, gameRules);
 };
 
-brainGcd();
+export default brainGcd;

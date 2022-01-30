@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import { gameEngine, getRandomNumber } from '../src/index.js';
 
 const getQuestionAndAnswer = (firstNumber, secondNumber) => {
@@ -39,4 +37,4 @@ const brainProgression = () => {
   gameEngine(questionAndAnswerPairs, gameRules);
 };
 
-brainProgression();
+export default brainProgression;
