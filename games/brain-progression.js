@@ -1,36 +1,42 @@
 #!/usr/bin/env node
 
-// import gameEngine from "../src";
+import gameEngine from '../src/index.js';
 
-const randomNumber = () => {
-  const result = Math.round(Math.random() * 6);
+const randomNumber = (number = 10) => {
+  const result = Math.round(Math.random() * number);
   return result;
 };
 
-const createProgression = (firstNumber, secondNumber) => {
-  const array = [];
+const getProgressionAndRightAnswer = (firstNumber, secondNumber) => {
   let a = firstNumber;
   const b = secondNumber;
-  // let result = `${a}`;
-  // console.log(result);
-  array.push(a);
+  const array = [];
+  const bufferArray = [];
+  const questionArray = [];
+  questionArray.push(a);
   for (let i = 0; i < 9; i += 1) {
     a += b;
-    // const tempString = ` ${a}`;
-    // result = result.concat(tempString);
-    array.push(a);
+    questionArray.push(a);
   }
-  console.log(array);
-  const result = array.join(' ');
-  console.log(result);
+  const randomArrayIndex = randomNumber(9);
+  const rightAnswer = questionArray[randomArrayIndex];
+  questionArray[randomArrayIndex] = '..';
+  bufferArray[0] = questionArray.join(' ');
+  array.push(bufferArray);
+  array[0][1] = rightAnswer.toString();
+  return bufferArray;
 };
 
 const brainProgression = () => {
-  const a = 2; // randomNumber();
-  const b = Math.round(Math.random() * 6);
-  createProgression(a, b);
+  const gameRules = 'What number is missing in the progression?';
+  const array = [];
+  for (let i = 0; i < 3; i += 1) {
+    const a = randomNumber(2);
+    const b = randomNumber(6);
+    array.push(getProgressionAndRightAnswer(a, b));
+  }
+  console.log(array);
+  gameEngine(array, gameRules);
 };
 
 brainProgression();
-
-// gameEngine();
