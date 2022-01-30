@@ -7,36 +7,35 @@ const randomNumber = (number = 10) => {
   return result;
 };
 
-const getProgressionAndRightAnswer = (firstNumber, secondNumber) => {
+const getQuestionAndAnswer = (firstNumber, secondNumber) => {
   let a = firstNumber;
-  const b = secondNumber;
-  const array = [];
+  const d = secondNumber;
+  const resultArray = [];
   const bufferArray = [];
-  const questionArray = [];
-  questionArray.push(a);
+
+  // Adding items to an bufferArray
+  bufferArray.push(a);
   for (let i = 0; i < 9; i += 1) {
-    a += b;
-    questionArray.push(a);
+    a += d;
+    bufferArray.push(a);
   }
   const randomArrayIndex = randomNumber(9);
-  const rightAnswer = questionArray[randomArrayIndex];
-  questionArray[randomArrayIndex] = '..';
-  bufferArray[0] = questionArray.join(' ');
-  array.push(bufferArray);
-  array[0][1] = rightAnswer.toString();
-  return bufferArray;
+  const rightAnswer = bufferArray[randomArrayIndex];
+  bufferArray[randomArrayIndex] = '..';
+  resultArray.push(bufferArray.join(' '));
+  resultArray.push(String(rightAnswer));
+  return resultArray;
 };
 
 const brainProgression = () => {
   const gameRules = 'What number is missing in the progression?';
-  const array = [];
+  const questionAndAnswerPairs = [];
   for (let i = 0; i < 3; i += 1) {
     const a = randomNumber(2);
-    const b = randomNumber(6);
-    array.push(getProgressionAndRightAnswer(a, b));
+    const d = randomNumber(6);
+    questionAndAnswerPairs.push(getQuestionAndAnswer(a, d));
   }
-  console.log(array);
-  gameEngine(array, gameRules);
+  gameEngine(questionAndAnswerPairs, gameRules);
 };
 
 brainProgression();
