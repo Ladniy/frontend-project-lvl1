@@ -1,4 +1,5 @@
-import { gameEngine, getRandomNumber } from '../index.js';
+import gameEngine from '../index.js';
+import getRandomNumber from '../getRandomNumber.js';
 
 const getRandomOperator = () => {
   const operators = ['+', '-', '*'];
