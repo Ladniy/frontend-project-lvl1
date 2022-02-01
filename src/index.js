@@ -1,10 +1,5 @@
 import readlineSync from 'readline-sync';
 
-// Function for generate random nubmers, inclusive man and max integers
-function getRandomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
-
 // Main game engine function
 const gameEngine = (array, rules) => {
   console.log('Welcome to the Brain Games!');
@@ -30,4 +25,4 @@ const gameEngine = (array, rules) => {
   }
 };
 
-export { gameEngine, getRandomNumber };
+export default gameEngine;
