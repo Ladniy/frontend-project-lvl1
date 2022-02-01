@@ -1,5 +1,6 @@
 import gameEngine from '../index.js';
 import getRandomNumber from '../getRandomNumber.js';
+import numberOfRounds from '../numberOfRounds.js';
 
 const getQuestionAndAnswer = (num) => {
   const bufferArray = [];
@@ -24,7 +25,7 @@ const getQuestionAndAnswer = (num) => {
 const brainPrime = () => {
   const gameRules = 'Answer "yes" if given number is prime. Otherwise answer "no".';
   const questionAndAnswerPairs = [];
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 0; i < numberOfRounds; i += 1) {
     const randomNumber = getRandomNumber(1, 60);
     questionAndAnswerPairs.push(getQuestionAndAnswer(randomNumber));
   }

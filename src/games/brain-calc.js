@@ -1,5 +1,6 @@
 import gameEngine from '../index.js';
 import getRandomNumber from '../getRandomNumber.js';
+import numberOfRounds from '../numberOfRounds.js';
 
 const getRandomOperator = () => {
   const operators = ['+', '-', '*'];
@@ -29,7 +30,7 @@ const getRightAnswer = (firstNumber, secondNumber, operator) => {
 const brainCalc = () => {
   const gameRules = 'What is the result of the expression?';
   const questionAnswerPairs = [];
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 0; i < numberOfRounds; i += 1) {
     const firstNumber = getRandomNumber(0, 30);
     const secondNumber = getRandomNumber(0, 30);
     const operator = getRandomOperator();

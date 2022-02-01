@@ -1,4 +1,5 @@
 import readlineSync from 'readline-sync';
+import numberOfRounds from './numberOfRounds.js';
 
 // Main game engine function
 const gameEngine = (array, rules) => {
@@ -8,7 +9,7 @@ const gameEngine = (array, rules) => {
 
   // Compresion and counting answers
   let rightAnswersCount = 0;
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 0; i < numberOfRounds; i += 1) {
     const userAnswer = readlineSync.question(`Question: ${array[i][0]}\nYour answer: `);
     if (array[i][1] === userAnswer) {
       console.log('Correct!');

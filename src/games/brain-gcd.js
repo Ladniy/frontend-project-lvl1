@@ -1,5 +1,6 @@
 import gameEngine from '../index.js';
 import getRandomNumber from '../getRandomNumber.js';
+import numberOfRounds from '../numberOfRounds.js';
 
 const getRightAnswer = (firstNumber, secondNumber) => {
   let a = firstNumber;
@@ -21,7 +22,7 @@ const getRightAnswer = (firstNumber, secondNumber) => {
 const brainGcd = () => {
   const gameRules = 'Find the greatest common divisor of given numbers.';
   const questionAnswerPairs = [];
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 0; i < numberOfRounds; i += 1) {
     const bufferArray = [];
     const firstNumber = getRandomNumber(1, 50);
     const secondNumber = getRandomNumber(1, 50);

@@ -1,5 +1,6 @@
 import gameEngine from '../index.js';
 import getRandomNumber from '../getRandomNumber.js';
+import numberOfRounds from '../numberOfRounds.js';
 
 const getQuestionAndAnswer = (firstNumber, secondNumber) => {
   let a1 = firstNumber;
@@ -30,7 +31,7 @@ const getQuestionAndAnswer = (firstNumber, secondNumber) => {
 const brainProgression = () => {
   const gameRules = 'What number is missing in the progression?';
   const questionAndAnswerPairs = [];
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 0; i < numberOfRounds; i += 1) {
     const a = getRandomNumber(1, 4);
     const d = getRandomNumber(2, 6);
     questionAndAnswerPairs.push(getQuestionAndAnswer(a, d));

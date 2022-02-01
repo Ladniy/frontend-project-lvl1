@@ -1,11 +1,12 @@
 import gameEngine from '../index.js';
 import getRandomNumber from '../getRandomNumber.js';
+import numberOfRounds from '../numberOfRounds.js';
 
 const brainEven = () => {
   const gameRules = 'Answer "yes" if the number is even, otherwise answer "no".';
   const questionAnswerPairs = [];
 
-  for (let i = 0; i < 3; i += 1) {
+  for (let i = 0; i < numberOfRounds; i += 1) {
     const randomNumber = getRandomNumber(0, 20);
 
     // Geting right answer
