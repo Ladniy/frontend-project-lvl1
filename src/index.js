@@ -7,23 +7,25 @@ const gameEngine = (array, rules) => {
   const username = readlineSync.question('May i have your name? ');
   console.log(`Hello, ${username}!\n${rules}`);
 
-  // Compresion and counting answers
-  let rightAnswersCount = 0;
+  // Compresion answers
   for (let i = 0; i < numberOfRounds; i += 1) {
-    const userAnswer = readlineSync.question(`Question: ${array[i][0]}\nYour answer: `);
-    if (array[i][1] === userAnswer) {
-      console.log('Correct!');
-      rightAnswersCount += 1;
-    } else {
-      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${array[i][1]}'\nLet's try again, ${username}!`);
-      break;
+    // -----------------------------
+    const question = array[i][0];
+    const rightAnswer = array[i][1];
+    // -----------------------------
+    // ^Не знаю как тут использовать деструктуризацию, а не присваивание...
+    // (хотя деструктуразация и есть присваивание)
+
+    const userAnswer = readlineSync.question(`Question: ${question}\nYour answer: `);
+
+    if (rightAnswer !== userAnswer) {
+      console.log(`'${userAnswer}' is wrong answer ;(. Correct answer was '${rightAnswer}'\nLet's try again, ${username}!`);
+      return;
     }
+    console.log('Correct!');
   }
 
-  // Checking answers count and show message of game ending
-  if (rightAnswersCount === 3) {
-    console.log(`Congratulations, ${username}!`);
-  }
+  console.log(`Congratulations, ${username}!`);
 };
 
 export default gameEngine;
