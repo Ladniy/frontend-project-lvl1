@@ -3,6 +3,7 @@ import getRandomNumber from '../getRandomNumber.js';
 import numberOfRounds from '../numberOfRounds.js';
 
 const getQuestionAndAnswer = (firstNumber, secondNumber) => {
+  const numberOfDigits = 9;
   let a1 = firstNumber;
   const d1 = secondNumber;
   const resultArray = [];
@@ -10,7 +11,7 @@ const getQuestionAndAnswer = (firstNumber, secondNumber) => {
 
   // Adding items to an bufferArray
   bufferArray.push(a1);
-  for (let i = 0; i < 9; i += 1) {
+  for (let i = 0; i < numberOfDigits; i += 1) {
     a1 += d1;
     bufferArray.push(a1);
   }
