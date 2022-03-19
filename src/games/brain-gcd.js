@@ -1,27 +1,25 @@
-import gameEngine from '../index.js';
+import { gameEngine, numberOfRounds } from '../index.js';
 import getRandomNumber from '../getRandomNumber.js';
-import numberOfRounds from '../numberOfRounds.js';
 
+// Finding GCD with Euclid's Algorithm and Recursion
 const getRightAnswer = (firstNumber, secondNumber) => {
-  let a = firstNumber;
-  let b = secondNumber;
-  let rightAnswer = 0;
+  let rightAnswer;
 
-  // Finding GCD by subtraction algorithm
-  while (a !== b) {
-    if (a > b) {
-      a -= b;
-    } else {
-      b -= a;
-    }
+  if (firstNumber === secondNumber) {
+    rightAnswer = firstNumber;
+  } else if (firstNumber > secondNumber) {
+    rightAnswer = getRightAnswer(firstNumber - secondNumber, secondNumber);
+  } else if (firstNumber < secondNumber) {
+    rightAnswer = getRightAnswer(firstNumber, secondNumber - firstNumber);
   }
-  rightAnswer = a;
+
   return rightAnswer;
 };
 
 const brainGcd = () => {
   const gameRules = 'Find the greatest common divisor of given numbers.';
   const questionAnswerPairs = [];
+
   for (let i = 0; i < numberOfRounds; i += 1) {
     const bufferArray = [];
     const firstNumber = getRandomNumber(1, 50);

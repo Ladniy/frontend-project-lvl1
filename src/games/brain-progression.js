@@ -1,41 +1,40 @@
-import gameEngine from '../index.js';
+import { gameEngine, numberOfRounds } from '../index.js';
 import getRandomNumber from '../getRandomNumber.js';
-import numberOfRounds from '../numberOfRounds.js';
 
-const getQuestionAndAnswer = (firstNumber, secondNumber) => {
+const getNumbersArray = (firstNumber, secondNumber) => {
   const numberOfDigits = 9;
   let a1 = firstNumber;
   const d1 = secondNumber;
-  const resultArray = [];
-  const bufferArray = [];
+  const numbersArray = [];
 
-  // Adding items to an bufferArray
-  bufferArray.push(a1);
+  numbersArray.push(a1);
   for (let i = 0; i < numberOfDigits; i += 1) {
     a1 += d1;
-    bufferArray.push(a1);
+    numbersArray.push(a1);
   }
 
-  // Geting random array index and right answer
-  const randomItemIndex = getRandomNumber(0, 9);
-  const rightAnswer = bufferArray[randomItemIndex];
-
-  // Changing a random array item to two points
-  bufferArray[randomItemIndex] = '..';
-
-  // Adding items from the buffer array and right answer to result array
-  resultArray.push(bufferArray.join(' '));
-  resultArray.push(String(rightAnswer));
-  return resultArray;
+  return numbersArray;
 };
 
 const brainProgression = () => {
   const gameRules = 'What number is missing in the progression?';
   const questionAndAnswerPairs = [];
+  let bufferArray = [];
+  let handlerArray = [];
   for (let i = 0; i < numberOfRounds; i += 1) {
+    bufferArray = [];
+    handlerArray = [];
     const a = getRandomNumber(1, 4);
     const d = getRandomNumber(2, 6);
-    questionAndAnswerPairs.push(getQuestionAndAnswer(a, d));
+
+    bufferArray.push(getNumbersArray(a, d));
+    const randomItemIndex = getRandomNumber(0, 9);
+    const rightAnswer = bufferArray[0][randomItemIndex];
+
+    bufferArray[0][randomItemIndex] = '..';
+    handlerArray.push(bufferArray[0].join(' '));
+    handlerArray.push(String(rightAnswer));
+    questionAndAnswerPairs.push(handlerArray);
   }
   gameEngine(questionAndAnswerPairs, gameRules);
 };

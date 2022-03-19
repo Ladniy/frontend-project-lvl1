@@ -1,39 +1,33 @@
-import gameEngine from '../index.js';
+import { gameEngine, numberOfRounds } from '../index.js';
 import getRandomNumber from '../getRandomNumber.js';
-import numberOfRounds from '../numberOfRounds.js';
 
-const getRandomOperator = () => {
-  const operators = ['+', '-', '*'];
-  const number = getRandomNumber(0, 2);
-  const result = operators[number];
-  return result;
-};
+const operators = ['+', '-', '*'];
 
 const getRightAnswer = (firstNumber, secondNumber, operator) => {
-  let result = 0;
   switch (operator) {
     case '+':
-      result = firstNumber + secondNumber;
-      break;
+      return firstNumber + secondNumber;
     case '-':
-      result = firstNumber - secondNumber;
-      break;
+      return firstNumber - secondNumber;
     case '*':
-      result = firstNumber * secondNumber;
-      break;
+      return firstNumber * secondNumber;
     default:
       break;
   }
-  return result;
+
+  return null;
 };
 
 const brainCalc = () => {
   const gameRules = 'What is the result of the expression?';
   const questionAnswerPairs = [];
+
   for (let i = 0; i < numberOfRounds; i += 1) {
     const firstNumber = getRandomNumber(0, 30);
     const secondNumber = getRandomNumber(0, 30);
-    const operator = getRandomOperator();
+    const randomNumber = getRandomNumber(0, operators.length - 1);
+    const randomOperator = operators[randomNumber];
+    const operator = randomOperator;
 
     // Get string with expression
     const expressionString = `${firstNumber} ${operator} ${secondNumber}`;

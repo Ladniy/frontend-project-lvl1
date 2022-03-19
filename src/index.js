@@ -1,20 +1,16 @@
 import readlineSync from 'readline-sync';
-import numberOfRounds from './numberOfRounds.js';
+
+export const numberOfRounds = 3;
 
 // Main game engine function
-const gameEngine = (array, rules) => {
+export const gameEngine = (array, rules) => {
   console.log('Welcome to the Brain Games!');
   const username = readlineSync.question('May i have your name? ');
   console.log(`Hello, ${username}!\n${rules}`);
 
   // Compresion answers
   for (let i = 0; i < numberOfRounds; i += 1) {
-    // -----------------------------
-    const question = array[i][0];
-    const rightAnswer = array[i][1];
-    // -----------------------------
-    // ^Не знаю как тут использовать деструктуризацию, а не присваивание...
-    // (хотя деструктуразация и есть присваивание)
+    const [question, rightAnswer] = array[i];
 
     const userAnswer = readlineSync.question(`Question: ${question}\nYour answer: `);
 
@@ -27,5 +23,3 @@ const gameEngine = (array, rules) => {
 
   console.log(`Congratulations, ${username}!`);
 };
-
-export default gameEngine;
