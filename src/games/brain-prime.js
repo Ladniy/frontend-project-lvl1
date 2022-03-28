@@ -27,13 +27,11 @@ const brainPrime = () => {
     bufferArray = [];
     const randomNumber = getRandomNumber(1, 60);
     bufferArray.push(String(randomNumber));
-    if (isNumberPrime(randomNumber) === true) {
-      bufferArray.push('yes');
-    } else {
-      bufferArray.push('no');
-    }
+    const rightAnswer = isNumberPrime(randomNumber) ? 'yes' : 'no';
+    bufferArray.push(rightAnswer);
     questionAndAnswerPairs.push(bufferArray);
   }
+  console.log(questionAndAnswerPairs);
   gameEngine(questionAndAnswerPairs, gameRules);
 };
 
