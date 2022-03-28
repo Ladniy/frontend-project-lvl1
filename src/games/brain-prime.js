@@ -5,13 +5,13 @@ const isNumberPrime = (num) => {
   let result = true;
 
   if (num === 1) {
-    result = false;
-  } else {
-    for (let i = 2; i < num; i += 1) {
-      if (num % i === 0) {
-        result = false;
-        break;
-      }
+    return false;
+  }
+
+  for (let i = 2; i < num; i += 1) {
+    if (num % i === 0) {
+      result = false;
+      break;
     }
   }
 
