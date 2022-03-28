@@ -31,7 +31,6 @@ const brainPrime = () => {
     bufferArray.push(rightAnswer);
     questionAndAnswerPairs.push(bufferArray);
   }
-  console.log(questionAndAnswerPairs);
   gameEngine(questionAndAnswerPairs, gameRules);
 };
 
