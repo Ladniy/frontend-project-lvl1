@@ -1,7 +1,7 @@
 import { gameEngine, numberOfRounds } from '../index.js';
 import getRandomNumber from '../getRandomNumber.js';
 
-const getNumbersArray = (firstNumber, secondNumber) => {
+const progressionGenerator = (firstNumber, secondNumber) => {
   const numberOfDigits = 9;
   let a1 = firstNumber;
   const d1 = secondNumber;
@@ -27,7 +27,7 @@ const brainProgression = () => {
     const a = getRandomNumber(1, 4);
     const d = getRandomNumber(2, 6);
 
-    bufferArray.push(getNumbersArray(a, d));
+    bufferArray.push(progressionGenerator(a, d));
     const randomItemIndex = getRandomNumber(0, 9);
     const rightAnswer = bufferArray[0][randomItemIndex];
 
