@@ -1,11 +1,6 @@
 import { gameEngine, numberOfRounds } from '../index.js';
 import getRandomNumber from '../getRandomNumber.js';
 
-// const isEven = (number) => {
-//   const result = number % 2;
-//   return result;
-// };
-
 function isEven(number) {
   return number % 2;
 }
@@ -18,7 +13,7 @@ const brainEven = () => {
     const randomNumber = getRandomNumber(0, 20);
 
     // Geting right answer
-    const rightAnswer = isEven(randomNumber) ? 'yes' : 'no';
+    const rightAnswer = isEven(randomNumber) ? 'no' : 'yes';
 
     // Creating buffer array and add items
     const bufferArray = [];
